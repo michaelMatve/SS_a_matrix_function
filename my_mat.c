@@ -15,67 +15,67 @@ void getValus(int pointMat[][10])
 
 int shortPuth(int pointMat[][10], int src, int dest)
 {
-    int tempmat[10]={};
+    int shortputh[10]={};
     for(int i=0; i<10 ; i++)
     {
-        tempmat[i]= 0;
+        shortputh[i]= 0;
     }
-    int arr[10]={0};
-    int numCheck = src;
-    while(numCheck >= 0)
+    int ifVisited[10]={0};
+    int nowCheck = src;
+    while(nowCheck >= 0)
     {
-        arr[numCheck]=1;
+        ifVisited[nowCheck]=1;
         for(int i = 0 ; i<10 ; i++)
         {
-            if(arr[i]==0)
+            if(ifVisited[i]==0)
             {
-                if(pointMat[numCheck][i]!=0)
+                if(pointMat[nowCheck][i]!=0)
                 {
-                    int dist = tempmat[numCheck] + pointMat[numCheck][i];
-                    if(tempmat[i] ==0)
+                    int dst = shortputh[nowCheck] + pointMat[nowCheck][i];
+                    if(shortputh[i] ==0)
                     {
-                        tempmat[i]=dist;
+                        shortputh[i]=dst;
                     }
                     else
                     {
-                        if(tempmat[i]>dist)
+                        if(shortputh[i]>dst)
                         {
-                            tempmat[i]=dist;
+                            shortputh[i]=dst;
                         }
                     }
                 }
             }
         }
-        numCheck = 0;
-        while(numCheck<10)
+        nowCheck = 0;
+        while(nowCheck<10)
         {
-            if(arr[numCheck]==0)
+            if(ifVisited[nowCheck]==0)
             {
-                if(tempmat[numCheck]!=0)
+                if(shortputh[nowCheck]!=0)
                 {
                     break;
                 }
             }
-            numCheck++;
+            nowCheck++;
         }
-        if(numCheck==10)
+        if(nowCheck==10)
         {
             break;
         }
-        for(int i=numCheck ; i<10 ; i++)
+        for(int i=nowCheck ; i<10 ; i++)
         {
-             if(arr[i]==0)
+             if(ifVisited[i]==0)
             {
-                if((tempmat[i]!=0)&&(tempmat[i]<tempmat[numCheck]))
+                if((shortputh[i]!=0)&&(shortputh[i]<shortputh[nowCheck]))
                 {
-                    numCheck=i;
+                    nowCheck=i;
                 }
             } 
         }
 
     }
 
-    return tempmat[dest];
+    return shortputh[dest];
 
 
 }
