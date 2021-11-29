@@ -9,7 +9,7 @@ main.o:main.c my_mat.h
 
 
 connections:main.o libmy_mat.a
-	gcc -Wall main.o ./libmy_mat.a -o connections -lm
+	gcc -Wall main.o ./libmy_mat.a -o connections 
 
 .PHONY: clean
 

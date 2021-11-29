@@ -3,7 +3,7 @@
 
 int main()
 {
-    int src,dest;
+    int src,dest,dst;
     int myMatrix[10][10] = {};
     char funck='0';
 
@@ -17,7 +17,8 @@ int main()
         if(funck == 'B')
         {
             scanf("%d %d",&src, &dest);
-            if(shortPuth(myMatrix,src,dest)==0)
+            dst =shortPuth(myMatrix,src,dest);
+            if(dst==0)
             {
                 printf("False");
                 printf("\n");
@@ -31,7 +32,7 @@ int main()
         if(funck=='C')
         {
             scanf("%d %d",&src, &dest);
-            int dst =shortPuth(myMatrix,src,dest);
+            dst =shortPuth(myMatrix,src,dest);
             if(dst==0)
             {
                 printf("-1");

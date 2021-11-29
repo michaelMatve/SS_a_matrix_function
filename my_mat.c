@@ -15,11 +15,10 @@ void getValus(int pointMat[][10])
 
 int shortPuth(int pointMat[][10], int src, int dest)
 {
-    int tempmat[10][2]={};
+    int tempmat[10]={};
     for(int i=0; i<10 ; i++)
     {
-        tempmat[i][0] = 0;
-        tempmat[i][1] = 100;
+        tempmat[i]= 0;
     }
     int arr[10]={0};
     int numCheck = src;
@@ -32,18 +31,16 @@ int shortPuth(int pointMat[][10], int src, int dest)
             {
                 if(pointMat[numCheck][i]!=0)
                 {
-                    int dist = tempmat[numCheck][0] + pointMat[numCheck][i];
-                    if(tempmat[i][0]==0)
+                    int dist = tempmat[numCheck] + pointMat[numCheck][i];
+                    if(tempmat[i] ==0)
                     {
-                        tempmat[i][0]=dist;
-                        tempmat[i][1]=numCheck;
+                        tempmat[i]=dist;
                     }
                     else
                     {
-                        if(tempmat[i][0]>dist)
+                        if(tempmat[i]>dist)
                         {
-                            tempmat[i][0]=dist;
-                            tempmat[i][1]=numCheck;
+                            tempmat[i]=dist;
                         }
                     }
                 }
@@ -54,7 +51,7 @@ int shortPuth(int pointMat[][10], int src, int dest)
         {
             if(arr[numCheck]==0)
             {
-                if(tempmat[numCheck][0]!=0)
+                if(tempmat[numCheck]!=0)
                 {
                     break;
                 }
@@ -69,7 +66,7 @@ int shortPuth(int pointMat[][10], int src, int dest)
         {
              if(arr[i]==0)
             {
-                if((tempmat[i][0]!=0)&&(tempmat[i][0]<tempmat[numCheck][0]))
+                if((tempmat[i]!=0)&&(tempmat[i]<tempmat[numCheck]))
                 {
                     numCheck=i;
                 }
@@ -78,7 +75,7 @@ int shortPuth(int pointMat[][10], int src, int dest)
 
     }
 
-    return tempmat[dest][0];
+    return tempmat[dest];
 
 
 }
