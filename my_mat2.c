@@ -36,7 +36,7 @@ void getValus(int pointMat[][10])
                     int dst = pointMat[i][k]+pointMat[k][j];
                     if(dst<pointMat[i][j])
                     {
-                        pointMat[i][j]=dst;
+                        pointMat[i][j]= dst;
                     }
                 }
             }

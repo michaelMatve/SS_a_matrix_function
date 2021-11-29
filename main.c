@@ -3,7 +3,7 @@
 
 int main()
 {
-    int src,dest,dst;
+    int src,dest, dst;
     int myMatrix[10][10] = {};
     char funck='0';
 

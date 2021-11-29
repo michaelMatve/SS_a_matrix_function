@@ -8,7 +8,7 @@ void getValus(int pointMat[][10])
             for( int j=0 ; j<10 ; j++)
             {
                 scanf("%d" ,&num);
-                pointMat[i][j]= num;
+                pointMat[i][j] = num;
             }
         }
 }
