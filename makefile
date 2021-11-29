@@ -7,13 +7,18 @@ libmy_mat.a: my_mat.o my_mat.h
 main.o:main.c my_mat.h
 	gcc -c -Wall main.c
 
+my_mat2.o : my_mat2.c my_mat.h
+	gcc -c -Wall my_mat.c
 
-connections:main.o libmy_mat.a
-	gcc -Wall main.o ./libmy_mat.a -o connections 
+libmy_mat2.a: my_mat2.o my_mat.h
+	ar rcu libmy_mat2.a my_mat.o
+
+connections:main.o libmy_mat2.a
+	gcc -Wall main.o ./libmy_mat2.a -o connections 
 
 .PHONY: clean
 
 clean:
-	rm *.o libmy_mat.a connections
+	rm *.o *.a connections
 
 all:connections

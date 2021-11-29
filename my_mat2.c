@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void getValus(int pointMat[][10])
 {
     int num;
@@ -9,19 +11,15 @@ void getValus(int pointMat[][10])
                 pointMat[i][j]= num;
             }
         }
-    makeShorterst(pointMat);
-}
-void makeShortesrst(int temp[][10])
-{
     for(int i=0 ; i<10 ; i++)
     {
         for(int j=0 ; j<10 ; j++)
         {
             if(i!=j)
             {
-                if(temp[i][j]==0)
+                if(pointMat[i][j]==0)
                 {
-                    temp[i][j]= __INT_MAX__;
+                    pointMat[i][j]= __INT_MAX__;
                 }
             }
         }
@@ -33,12 +31,12 @@ void makeShortesrst(int temp[][10])
         {
             for(int j=0 ; j<10 ;j++)
             {
-                if((temp[i][k]!=__INT_MAX__)&&(temp[k][j]!=__INT_MAX__))
+                if((pointMat[i][k]!=__INT_MAX__)&&(pointMat[k][j]!=__INT_MAX__))
                 {
-                    int dst = temp[i][k]+temp[k][j];
-                    if(dst<temp[i][j])
+                    int dst = pointMat[i][k]+pointMat[k][j];
+                    if(dst<pointMat[i][j])
                     {
-                        temp[i][j]=dst;
+                        pointMat[i][j]=dst;
                     }
                 }
             }
