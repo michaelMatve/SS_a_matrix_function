@@ -4,18 +4,18 @@ void getValus(int pointMat[][10])
 {
     int num;
     for(int i = 0; i<10 ; i++)
+        {
+            for( int j=0 ; j<10 ; j++)
             {
-                for( int j=0 ; j<10 ; j++)
-                {
-                    scanf("%d" ,&num);
-                    pointMat[i][j]= num;
-                }
+                scanf("%d" ,&num);
+                pointMat[i][j]= num;
             }
+        }
 }
 
 int shortPuth(int pointMat[][10], int src, int dest)
 {
-    int tempmat[10][3]={};
+    int tempmat[10][2]={};
     for(int i=0; i<10 ; i++)
     {
         tempmat[i][0] = 0;
@@ -59,6 +59,7 @@ int shortPuth(int pointMat[][10], int src, int dest)
                     break;
                 }
             }
+            numCheck++;
         }
         if(numCheck==10)
         {
@@ -71,7 +72,6 @@ int shortPuth(int pointMat[][10], int src, int dest)
                 if((tempmat[i][0]!=0)&&(tempmat[i][0]<tempmat[numCheck][0]))
                 {
                     numCheck=i;
-                    break;
                 }
             } 
         }

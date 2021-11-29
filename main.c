@@ -30,9 +30,18 @@ int main()
         }
         if(funck=='C')
         {
+            scanf("%d %d",&src, &dest);
             int dst =shortPuth(myMatrix,src,dest);
-            printf("%d",dst);
-            printf("\n");
+            if(dst==0)
+            {
+                printf("-1");
+                printf("\n");
+            }
+            else
+            {
+                printf("%d",dst);
+                printf("\n");
+            }
         }
     }
     
